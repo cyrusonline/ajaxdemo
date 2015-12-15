@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+<script>
+$(document).ready(function(){
+	$('#search').keyup(function(){
+		var search = $('#search').val();
+		$.ajax({
+			url:'search.php',
+			data:{search:search},
+			type: 'POST',
+			success:function(data){
+				if(!data.error){
+					$('#result').html(data);
+					
+				}
+			}
+		})
+	})
+})
+
+</script>
+
+<div id="container" class='col-xs-6 col-xs-offset-3 '>
+<div class = "row">
+<h2>Search our database</h2>
+<input class="form-control" type="text" name='search' id='search' placeholder='Search our inventory'>
+<br>
+<br>
+<h2 class="bg-success" id="result">
+
+</h2>
+</div>
+
+<div class="row">
+<form action = "">
+<input type = "text" name="car_name" class="form-control">
+
+<input type = "submit" class="btn btn-primary" value="add car">
+
+</form>
+
+
+</div>
+
+</div>
+
+</body>
+</html>
