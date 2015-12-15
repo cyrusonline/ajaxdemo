@@ -26,7 +26,28 @@ $(document).ready(function(){
 			}
 		})
 	})
-})
+	
+	//The following code add cars to database table cars
+
+/*	$("#add-car-form").submit(function(evt){
+		evt.preventDefault();
+		var postData = $(this).serialize();
+		var url = $(this).attr('action');
+		
+		//alert(url);
+		$.post(url, postData, function(php_table_data){
+			
+		$('#car-result').html(php_table_data);
+		});
+		
+		
+		
+		
+	}) */
+	
+	
+	
+})//Document ready function end
 
 </script>
 
@@ -42,12 +63,23 @@ $(document).ready(function(){
 </div>
 
 <div class="row">
-<form action = "">
+<form method="post" id="add-car-form" class="col-xs-6"action = "add_cars.php">
+<div class="form-group">
 <input type = "text" name="car_name" class="form-control">
-
+</div>
+<div class="form-group">
 <input type = "submit" class="btn btn-primary" value="add car">
-
+</div>
 </form>
+<div class="col-xs-6">
+<div id="car-result">
+
+
+
+</div>
+
+
+</div>
 
 
 </div>

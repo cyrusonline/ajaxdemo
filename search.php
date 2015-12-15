@@ -1,6 +1,7 @@
 <?php
 
-$connection = mysqli_connect('localhost','root','','ajax');
+include 'db.php';
+
 
 // if ($connection){
 // 	echo "connected";
