@@ -12,6 +12,21 @@ integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkz
 <body>
 <script>
 $(document).ready(function(){
+	
+	$.ajax({
+		
+		url:'display_cars.php',
+		type:'POST',
+		success: function(show_cars){
+			if(!show_cars.error){
+				$("#show-cars").html(show_cars);
+			}
+			
+		}
+		
+		})
+	
+	
 	$('#search').keyup(function(){
 		var search = $('#search').val();
 		$.ajax({
@@ -29,7 +44,7 @@ $(document).ready(function(){
 	
 	//The following code add cars to database table cars
 
-/*	$("#add-car-form").submit(function(evt){
+ /* $("#add-car-form").submit(function(evt){
 		evt.preventDefault();
 		var postData = $(this).serialize();
 		var url = $(this).attr('action');
@@ -38,12 +53,14 @@ $(document).ready(function(){
 		$.post(url, postData, function(php_table_data){
 			
 		$('#car-result').html(php_table_data);
-		});
+		}); 
 		
 		
 		
-		
-	}) */
+	}); */
+	// Add car code function end
+	
+	
 	
 	
 	
@@ -71,13 +88,24 @@ $(document).ready(function(){
 <input type = "submit" class="btn btn-primary" value="add car">
 </div>
 </form>
+<div class="row">
 <div class="col-xs-6">
-<div id="car-result">
+<table class="table">
+<thead>
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+	</tr>
+</thead>
+<tbody id="show-cars">
 
 
+</tbody>
+
+
+</table>
 
 </div>
-
 
 </div>
 
